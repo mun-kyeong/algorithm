@@ -15,13 +15,14 @@ function solution(n, computers) {
             }
         }
         networkCount ++;
-        
-        for(let i=0; i<n; i++){
-            if(visited[i] === false) return bfs(i);
-        }
-        
-        return networkCount;
+
     }
     
-    return bfs(0);
+           
+    for(let i=0; i<n; i++){
+        if(visited[i] === false) bfs(i);
+    }
+
+    
+    return networkCount;
 }
