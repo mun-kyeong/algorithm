@@ -9,13 +9,14 @@ const numbers = input[1]
 
 let accNum = 0;
 const accNumbers = numbers.reduce((acc, num) => {
-  acc.push(accNum + num);
   accNum += num;
-  return acc;
-}, []);
+  return acc + accNum;
+}, 0);
 
-console.log(
-  accNumbers.reduce((acc, num) => {
-    return acc + num;
-  }, 0)
-);
+// console.log(
+//   accNumbers.reduce((acc, num) => {
+//     return acc + num;
+//   }, 0)
+// );
+
+console.log(accNumbers);
