@@ -11,13 +11,15 @@ let head = 0;
 for (let i = 0; i < N; i++) {
   for (let j = 0; j < M; j++) {
     if (map[i][j] === 1) {
-      queue.push([j, i, 0]);
+      queue.push(j, i, 0);
     }
   }
 }
 
 while (head < queue.length) {
-  const [m, n, count] = queue[head++];
+  const m = queue[head++];
+  const n = queue[head++];
+  const count = queue[head++];
   maxCount = Math.max(maxCount, count);
 
   validateTomato(m, n + 1, count);
@@ -29,7 +31,7 @@ while (head < queue.length) {
 function validateTomato(m, n, count) {
   if (m < M && n < N && m >= 0 && n >= 0 && map[n][m] === 0) {
     map[n][m] = 1;
-    queue.push([m, n, count + 1]);
+    queue.push(m, n, count + 1);
   }
 }
 
